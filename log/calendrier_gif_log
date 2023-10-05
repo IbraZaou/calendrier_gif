@@ -47,3 +47,5 @@
 2023-10-05 11:20:02.437  INFO 15992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
 2023-10-05 11:20:02.457  INFO 15992 --- [restartedMain] f.h.a.c.CalendrierGifApplication         : Started CalendrierGifApplication in 6.673 seconds (JVM running for 7.192)
 2023-10-05 11:20:21.389  INFO 15992 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-05 11:20:21.390  INFO 15992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-10-05 11:20:21.391  INFO 15992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
