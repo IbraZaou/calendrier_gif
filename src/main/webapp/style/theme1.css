@@ -1,0 +1,44 @@
+@charset "ISO-8859-1";
+
+h1 {
+	color: black;
+	border: solid 1px black;
+	border-radius: 20px;
+	font-family: "Arial";
+	text-align: center;
+	width: 30%;
+	margin: auto;
+	transition: .5s;
+}
+
+h1:hover {
+	width: 70%;
+	transition: .5s;
+}
+
+
+label {
+	display: block;
+	width: 210px;
+	float: left;
+	font-family: "Arial";
+}
+
+input[type="text"] {
+	width: 200px;
+	font-family: "Arial";
+}
+
+input[type="submit"] {
+	width: 100px;
+	font-family: "Arial";
+}
+
+select {
+	width: 206px;
+	font-family: "Arial";
+}
+
+.erreur {
+	color: red;
+}

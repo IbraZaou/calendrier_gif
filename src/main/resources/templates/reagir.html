@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Réagir au GIF</title>
+    <link rel="stylesheet" th:href="@{/style/settings.css}">
+<link rel="stylesheet" th:href="@{/style/index.css}">
+<link rel="stylesheet" th:href="@{/style/reagir.css}">
+<link rel="stylesheet"
+    th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css}"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div th:include="/../include/navbar.html"></div>
+   
+    <!-- Formulaire pour réagir au GIF -->
+    <form th:action="@{reagir}" th:object="${reagir}" method="post">
+
+ <h1>Réagir au GIF</h1>
+
+  <!-- Afficher le GIF -->
+    <div class="container-img">
+        <img th:src="${gif.url}" alt="GIF" id="img" />
+    </div>
+        
+        <!-- Champ caché pour l'ID du GIF -->
+        <input type="hidden" name="ID_GIF" th:value="${gif.id}" />
+
+        <!-- Liste déroulante des émotions -->
+        <label for="ID_EMOTION">Sélectionnez une émotion :</label>
+        <select name="ID_EMOTION">
+            <option th:each="emotion : ${emotions}" th:value="${emotion.id}" th:text="${emotion.nom}"></option>
+        </select>
+
+        <!-- Bouton de soumission -->
+        <button type="submit">Réagir</button>
+    </form>
+    
+        <div th:include="/../include/footer.html"></div>
+    <script type="text/javascript" th:src="@{/script/reagir.js}"></script>
+</body>
+</html>

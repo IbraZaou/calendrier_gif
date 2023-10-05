@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Gif_Station</title>
+	<link th:href="@{/style/bachata.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/style/index.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/style/settings.css}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div th:include="/../include/navbar.html"></div>
+    <!-- Inclusion d'une barre de navigation (navbar) depuis un fichier externe -->
+
+    <h2 th:text="'Utilisateur : ' + ${session.utilisateur?.prenom} + ' , ' + ${session.utilisateur?.nbPoints} + ' points' ">
+        <!-- Affiche le nom et le solde de l'utilisateur s'il est connecté -->
+        <a th:if="${session?.utilisateur != null}" th:href="@{/calendrier/deconnexion}">Déconnexion</a>
+        <!-- Lien de déconnexion affiché si un utilisateur est connecté -->
+    </h2>
+
+    <div class="card-container">
+        <!-- Conteneur pour les cartes (éléments de contenu) -->
+
+        <div th:each="jour : ${pageDeJours.content}" class="card">
+            <!-- Boucle Thymeleaf pour afficher chaque carte pour un jour donné -->
+            <div class="card-header">
+                <h2 th:text="${jour.date}"></h2>
+                <!-- Affiche la date du jour -->
+            </div>
+            <div class="card-body">
+                <div th:if="${jour.gif eq null}">
+                    <!-- Affiche le contenu si aucun GIF n'est associé au jour -->
+                    <p class="pts" th:text="${jour.nbPoints} + ' points'"></p>
+                    <!-- Affiche le nombre de points pour le jour -->
+                    <a class="btn-gifs" th:href="@{/calendrier/placerGifDistant(ID_JOUR=${jour.date})}">Placer un Gif distant</a>
+                    <!-- Lien pour placer un GIF distant pour ce jour -->
+                    <a class="btn-gifs" th:href="@{/calendrier/televerserGif(ID_JOUR=${jour.date})}">Téléverser un Gif</a>
+                    <!-- Lien pour téléverser un GIF pour ce jour -->
+                </div>
+                <div th:if="${jour.gif ne null}">
+                    <!-- Affiche le contenu si un GIF est associé au jour -->
+                    <img th:if="${jour.gif.getClass().simpleName eq 'GifDistant'}" th:src="${jour.gif.url}" alt="Gif">
+                    <!-- Affiche l'image du GIF distant -->
+                    <img th:if="${jour.gif.getClass().simpleName eq 'GifTeleverse'}" th:src="@{/images/${jour.gif.id}.gif}" alt="Gif">
+                    <!-- Affiche l'image du GIF téléversé -->
+                    <div class="top-body-card">
+                        <h3 th:if="${jour.gif.legende ne null}" th:text="${jour.gif.legende}"></h3>
+                        <!-- Affiche la légende du GIF s'il en a une -->
+                        <p th:text="${jour?.gif?.utilisateur?.prenom}"></p>
+                        <!-- Affiche le prénom de l'utilisateur associé au GIF -->
+                    </div>
+                    <span th:each="reaction : ${jour.gif.reactions}" th:text="${reaction.emotion.code + ' ' + reaction.utilisateur.prenom}"></span><br>
+                    <!-- Affiche les réactions au GIF -->
+                    <a class="btn-reagir" th:href="@{/calendrier/reagir(ID_GIF=${jour.gif.id})}">Réagir</a>
+                    <!-- Lien pour réagir au GIF -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pagination-container">
+        <!-- Conteneur pour la pagination -->
+        <nav aria-label="page-navigation">
+            <ul class="pagination">
+                <!-- Liste de pagination -->
+
+                <!-- Bouton pour aller à la page précédente -->
+                <li class="page-item" th:if="${!pageDeJours.first}">
+                    <a class="page-link" th:href="'calendrier?page=' + ${pageDeJours.number-1} + '&sort=date'" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></a>
+                </li>
+
+                <!-- Affichage de la page actuelle et du nombre total de pages -->
+                <li class="page-item disabled">
+                    <span class="page-container">Page <span th:text="${pageDeJours.number+1}"></span> : Jour <span th:text="${pageDeJours.totalElements == 0 ? 0 : pageDeJours.size * pageDeJours.number+1}"></span> à <span th:text="${pageDeJours.numberOfElements + (pageDeJours.size * pageDeJours.number)}"></span> sur <span th:text="${pageDeJours.totalElements}"></span> Jours</span>
+                </li>
+
+                <!-- Bouton pour aller à la page suivante -->
+                <li class="page-item" th:if="${!pageDeJours.last}">
+                    <a class="page-link" th:href="'calendrier?page=' + ${pageDeJours.number+1} + '&sort=date'" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+<!-- Inclusion d'un pied de page depuis un fichier externe -->
+<div th:include="/../include/footer.html"></div>
+    
+
+</body>
+
+
+</html>

@@ -1,0 +1,77 @@
+2023-08-31T18:44:53.585+02:00  INFO 6712 --- [restartedMain] f.h.a.c.CalendrierGifApplication         : Starting CalendrierGifApplication using Java 20.0.1 with PID 6712 (C:\Users\HB\eclipse-workspace\calendrier_gif\calendrier_gif\target\classes started by HB in C:\Users\HB\eclipse-workspace\calendrier_gif\calendrier_gif)
+2023-08-31T18:44:53.587+02:00  INFO 6712 --- [restartedMain] f.h.a.c.CalendrierGifApplication         : No active profile set, falling back to 1 default profile: "default"
+2023-08-31T18:44:54.398+02:00  INFO 6712 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-31T18:44:54.484+02:00  INFO 6712 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 8 JPA repository interfaces.
+2023-08-31T18:44:54.765+02:00  INFO 6712 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-08-31T18:44:54.767+02:00  INFO 6712 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-31T18:44:54.770+02:00  INFO 6712 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-08-31T18:44:55.063+02:00  INFO 6712 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-08-31T18:44:55.074+02:00  INFO 6712 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-31T18:44:55.074+02:00  INFO 6712 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1480 ms
+2023-08-31T18:44:55.157+02:00  INFO 6712 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-08-31T18:44:55.164+02:00  INFO 6712 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:calendrier_gif user=SA
+2023-08-31T18:44:55.165+02:00  INFO 6712 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-08-31T18:44:55.166+02:00  INFO 6712 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:calendrier_gif'
+2023-08-31T18:44:55.319+02:00  INFO 6712 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-31T18:44:55.342+02:00  INFO 6712 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-31T18:44:55.343+02:00  INFO 6712 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-31T18:44:55.421+02:00  INFO 6712 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-31T18:44:55.688+02:00  INFO 6712 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-31T18:44:55.748+02:00  INFO 6712 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-31T18:44:56.664+02:00  WARN 6712 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-31T18:44:56.833+02:00  INFO 6712 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-08-31T18:44:57.561+02:00  WARN 6712 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 9ae748aa-a887-48be-b684-34ffbee308e0
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-31T18:44:57.599+02:00  INFO 6712 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path ''
+2023-08-31T18:44:57.611+02:00  INFO 6712 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5ac7249e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@142855e9, org.springframework.security.web.context.SecurityContextHolderFilter@3c28eb56, org.springframework.security.web.header.HeaderWriterFilter@10793274, org.springframework.web.filter.CorsFilter@25178a69, org.springframework.security.web.csrf.CsrfFilter@48a6cbeb, org.springframework.security.web.authentication.logout.LogoutFilter@10d868a6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1694e356, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@55750abf, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3f7d3aae, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@30955cb1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42af86ab, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@cc663c1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cfd1a0b, org.springframework.security.web.access.ExceptionTranslationFilter@69b4e275, org.springframework.security.web.access.intercept.AuthorizationFilter@52e21ead]
+2023-08-31T18:44:57.676+02:00  INFO 6712 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-08-31T18:44:57.708+02:00  INFO 6712 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-31T18:44:57.720+02:00  INFO 6712 --- [restartedMain] f.h.a.c.CalendrierGifApplication         : Started CalendrierGifApplication in 4.268 seconds (process running for 399.973)
+2023-08-31T18:44:58.957+02:00  INFO 6712 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   BeansEndpointAutoConfiguration matched:
+      - @ConditionalOnAvailableEndpoint marked as exposed by a 'management.endpoints.web.exposure' property (OnAvailableEndpointCondition)
+
+   BeansEndpointAutoConfiguration#beansEndpoint matched:
+      - @ConditionalOnMissingBean (types: org.springframework.boot.actuate.beans.BeansEndpoint; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2023-08-31T18:53:54.977+02:00  INFO 6712 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-08-31T18:53:55.001+02:00  INFO 6712 --- [Thread-7] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-08-31T18:53:55.025+02:00  INFO 6712 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-31T18:53:55.239+02:00  WARN 6712 --- [Thread-7] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de données est déjà fermée (pour désactiver la fermeture automatique à l'arrêt de la VM, ajoutez "; DB_CLOSE_ON_EXIT = FALSE" à l'URL db)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-214]
+2023-08-31T18:53:55.241+02:00  INFO 6712 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-08-31T18:53:55.243+02:00  INFO 6712 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.

@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root{
+    --Poppins: 'Poppins', sans-serif;
+    --Blue: #1884F7;
+    --Blue-02: #1EBC99;
+    --Yellow: #F9CC0D;
+    --Red: #F41B3B;
+    --Black: #0A070B;
+    --Gray: #363536;
+    --Gray-02: #4F4E50;
+    --Gray-03: #E8ECEF;
+    --Gray-04: #807E81;
+    --Background-color:  #fff;
+    --Transparent: rgb(0 0 0 / 80%);
+}
+
+*, ::after, ::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: var(--Poppins);
+    overflow-x: hidden;
+    background: var(--Background-color); 
+    height: 100vh;
+}
+
+/*Scroll bar*/
+::-webkit-scrollbar{
+    width: 11px;
+    background: #fff;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+    width: 100%;
+    background: #f41b3ccf;
+    border-radius: 2em;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover{
+    background: var(--Red);
+  }

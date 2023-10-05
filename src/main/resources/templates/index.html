@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Calendrier Gif</title>
+	<link rel="stylesheet" th:href="@{/style/settings.css}">
+	<link rel="stylesheet" th:href="@{/style/index.css}">
+
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css}"
+		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+	<div th:include="/../include/navbar.html"></div>
+
+	<div class="container-forms">
+
+		<div class="container_info">
+
+			<h2>Utilisateurs ayant réagi au moins 5 fois</h2>
+			<p th:if=${utilisateurs.isEmpty()} th:text="aucun"></p>
+			<div class="user_reaction">
+				<ul th:each="utilisateur : ${utilisateurs}">
+					<li th:text="${utilisateur?.prenom}"></li>
+				</ul>
+			</div>
+			<h2>Nb d'inscrits par année et par mois</h2>
+			<div class="container_nb_inscrit">
+				<div th:each="nbInscrit: ${nbInscrits}">
+					<div class="nb_inscrit"
+						th:text="${nbInscrit?.annee} + '/' + ${nbInscrit?.mois} +': '+ ${nbInscrit?.nbInscrits}"></div>
+				</div>
+
+			</div>
+			<p class="total_nb_inscrit" th:text="'nombre total d\'inscrits: ' +${nbTotalInscrits}"></p>
+			<br>
+		</div>
+
+		<div class="container" id="container">
+			<div class="form-container sign-up-container">
+				<form th:action="@{/login}" method="post">
+					<h2 class="h2-form">Connexion</h2>
+					<div class="social-container">
+						<a href="#" class="social"><i class="fab fa-facebook-f"></i></a> <a href="#" class="social"><i
+								class="fab fa-google-plus-g"></i></a>
+						<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+					</div>
+					<span>ahhhh j'ai peuuuur</span> <input type="text" name="username" placeholder="Email" required>
+					<input type="password" name="password" placeholder="motDePasse" required> <input class="btn-co"
+						type="submit" value="Connexion">
+				</form>
+			</div>
+
+			<div class="form-container sign-in-container">
+				<form th:action="@{/inscription}" method="post">
+
+					<h2 class="h2-form">Inscription</h2>
+
+					<div class="social-container">
+						<a href="#" class="social"><i class="fab fa-facebook-f"></i></a> <a href="#" class="social"><i
+								class="fab fa-google-plus-g"></i></a>
+						<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+					</div>
+					<div class="container_input">
+						<span>ou utiliser votre compte</span> <input type="text" placeholder="Nom" name="nom" /> <input
+							type="text" placeholder="Prenom" name="prenom" /> <input type="text" placeholder="Email"
+							name="email" /> <input type="password" placeholder="motDePasse" name="motDePasse" />
+
+
+						<div class="custom-dropdown">
+							<select id="theme" name="theme" class="custom-dropdown-select">
+								<option>Veuillez choisir un de nos thèmes</option>
+								<th:block th:each="theme : ${themes}">
+									<option th:value="${theme.id}" th:text="${theme.nom}"></option>
+								</th:block>
+							</select>
+						</div>
+					</div>
+
+
+					<input class="btn-co" type="submit" value="S'inscrire"> <a href="#">T'a oublier le mot de passe
+						(fallait le faire) ?</a>
+				</form>
+			</div>
+
+			<div class="overlay-container">
+				<div class="overlay">
+					<div class="overlay-panel overlay-left">
+						<h1>Bienvenue !</h1>
+						<p>Pour rester en contact avec nous, veuillez vous connecter
+							avec vos informations personnelles.</p>
+						<button class="ghost" id="signIn">Inscription</button>
+					</div>
+					<div class="overlay-panel overlay-right">
+						<h1>Bonjour, Ewavanavev cookoobavouc!</h1>
+						<p>Saisissez vos données personnelles et commencez à voyager
+							avec nous</p>
+						<button class="ghost" id="signUp">Connexion</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div th:include="/../include/footer.html"></div>
+	<script type="text/javascript" th:src="@{/script/index.js}"></script>
+</body>
+
+</html>

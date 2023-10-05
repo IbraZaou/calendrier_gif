@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Téléverser un GIF</title>
+    <link rel="stylesheet" th:href="@{/style/settings.css}">
+    <link rel="stylesheet" th:href="@{/style/index.css}">
+    <link rel="stylesheet" th:href="@{/style/gifTeleverse.css}">
+
+<link rel="stylesheet"
+    th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css}"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div th:include="/../include/navbar.html"></div>
+    <!-- Inclusion d'une barre de navigation (navbar) depuis un fichier externe -->
+    
+    <!-- Formulaire pour téléverser un GIF -->
+    <form th:action="@{televerserGif}" method="post" enctype="multipart/form-data">
+        <!-- Enctype "multipart/form-data" est utilisé pour téléverser des fichiers -->
+        <h1 class="h1-tel">Téléverser un GIF</h1>
+        
+        <!-- Champ caché pour stocker l'ID du jour -->
+        <div>
+            <input type="hidden" name="ID_JOUR" th:value="${idJour}" />
+        </div>
+        
+        <!-- Sélection de fichier GIF -->
+        <div>
+            <label for="FICHIER">Sélectionner un fichier GIF :</label>
+            <input type="file" name="FICHIER" id="FICHIER" required />
+            <!-- Champ de sélection de fichier, requis pour téléverser un GIF -->
+        </div>
+        
+        <!-- Bouton de soumission -->
+        <div>
+            <button type="submit">Téléverser</button>
+        </div>
+    </form>
+    
+    <!-- Lien de retour à la page du calendrier -->
+    <a th:href="@{/calendrier(page=${numeroDePage})}" th:if="${numeroDePage != null}">Retour à la page du calendrier</a>
+    
+    <div th:include="/../include/footer.html"></div>
+    <!-- Inclusion d'un pied de page depuis un fichier externe -->
+    
+    <script type="text/javascript" th:src="@{/script/index.js}"></script>
+    <!-- Inclusion d'un fichier JavaScript -->
+</body>
+
+
+</html>

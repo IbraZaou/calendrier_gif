@@ -1,0 +1,68 @@
+@charset "ISO-8859-1";
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.container-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 70%;
+}
+
+img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px;
+    border-radius: 30px;
+    width: 70%;
+    height: 70%;
+    transition: .3s;
+}
+
+img:hover {
+    transform: scale(1.1);
+    transition: .3s;
+    background-color: black;
+}
+
+body {
+    background-color: white;
+    transition: background-color 0.3s ease;
+}
+
+
+label {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+select {
+    width: 10%;
+    border-radius: 15px;
+    background: #eee;
+    outline: none;
+    border: none;
+    padding: 1.2rem 0;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+
+select:hover {
+    cursor: pointer;
+}
+
+form {
+    background-color: transparent;
+}
+
+body{
+    background-color: white;
+    transition: background-color 0.3s ease;
+    height: 100vh;
+}

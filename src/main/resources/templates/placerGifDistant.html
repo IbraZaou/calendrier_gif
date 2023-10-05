@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Placer un gif distant</title>
+	<link rel="stylesheet" th:href="@{/style/settings.css}">
+	<link rel="stylesheet" th:href="@{/style/index.css}">
+</head>
+
+<body>
+    <div th:include="/../include/navbar.html"></div>
+    <!-- Inclusion d'une barre de navigation (navbar) depuis un fichier externe -->
+
+    <form th:action="@{placerGifDistant}" th:object="${gifDistant}" method="post">
+        <!-- Formulaire pour placer un GIF distant -->
+        <h2 th:text="'Placer un gif distant sur le ' + ${gifDistant.jour.date} + ' (nombre de points: ' + ${gifDistant.jour.nbPoints} + ')'"></h2>
+        <!-- Affiche la date du jour et le nombre de points associé au jour -->
+
+        <label for="url">URL</label>
+        <!-- Étiquette pour le champ URL -->
+        <input type="text" id="url" name="url" th:field="*{url}" placeholder="http://clelia.fr/images/1.gif" />
+        <!-- Champ de saisie pour l'URL du GIF distant -->
+
+        <p th:if="${#fields.hasErrors('url')}" class="erreur" th:errors="*{url}"></p>
+        <!-- Affiche les erreurs de validation liées au champ URL, s'il y en a -->
+
+        <input type="hidden" name="jour.date" th:field="*{jour.date}" /><br>
+        <!-- Champ caché pour stocker la date du jour -->
+
+        <label for="legende">Légende</label>
+        <!-- Étiquette pour le champ de légende -->
+        <input type="text" id="legende" name="legende" th:field="*{legende}" /><br>
+        <!-- Champ de saisie pour la légende du GIF distant -->
+
+        <button type="submit">Placer</button>
+        <!-- Bouton de soumission du formulaire pour placer le GIF distant -->
+    </form>
+
+    <div th:include="/../include/footer.html"></div>
+    <!-- Inclusion d'un pied de page depuis un fichier externe -->
+
+</body>
+
+
+</html>
